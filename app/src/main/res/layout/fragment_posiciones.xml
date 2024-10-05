@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- Campo de texto para el ID de la Liga -->
+        <EditText
+            android:id="@+id/etIdLiga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el ID de la liga"
+            android:inputType="number"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Campo de texto para la Temporada -->
+        <EditText
+            android:id="@+id/etTemporada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese la temporada (ej: 2023-2024)"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Botón para buscar las posiciones -->
+        <Button
+            android:id="@+id/btnBuscarPosiciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar Posiciones" />
+
+        <!-- RecyclerView para mostrar la lista de equipos en la tabla de posiciones -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPosiciones"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
