@@ -9,20 +9,20 @@ public interface ApiService {
     Call<LeaguesResponse> getAllLeagues();
 
     @GET("search_all_leagues.php")
-    Call<LeaguesResponse> getLeaguesByCountry(@Query("c") String country);
+    Call<LeaguesResponse> getLeaguesByCountry(@Query("c") String leagues);
 
 
     // Método GET para obtener posiciones de la liga según la temporada
     @GET("lookuptable.php")
     Call<PosicionesResponse> getLeagueTable(
             @Query("l") String idLiga,   // ID de la liga
-            @Query("s") String season    // Temporada (ejemplo: 2023-2024)
+            @Query("s") String season    // Temporada
     );
     @GET("eventsround.php")
     Call<ResultadosResponse> getResultados(
             @Query("id") String idLiga,   // ID de la liga
             @Query("r") String ronda,     // Número de la ronda
-            @Query("s") String temporada  // Temporada (ejemplo: 2023-2024)
+            @Query("s") String temporada  // Temporada
     );
 
 }

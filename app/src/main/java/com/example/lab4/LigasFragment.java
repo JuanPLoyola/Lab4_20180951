@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,7 +27,7 @@ public class LigasFragment extends Fragment {
     private LigasAdapter ligasAdapter;
     private EditText etCountry;
     private Button btnBuscar;
-
+    private ApiService apiService;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,7 +41,6 @@ public class LigasFragment extends Fragment {
 
         ligasAdapter = new LigasAdapter(new ArrayList<>());
         recyclerView.setAdapter(ligasAdapter);
-
         // Cargar ligas al inicio
         getAllLeagues();
 
@@ -82,9 +82,16 @@ public class LigasFragment extends Fragment {
             @Override
             public void onResponse(Call<LeaguesResponse> call, Response<LeaguesResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    ligasAdapter.setLigas(response.body().getLigas());
+                    List<Liga> ligasList = response.body().getLigas();
+
+                    if (ligasList != null && !ligasList.isEmpty()) {  // Verificar que la lista no sea nula ni esté vacía
+                        ligasAdapter.setLigas(ligasList);
+                    } else {
+                        response.body();
+                        Toast.makeText(getContext(), "No se encontraron ligas para el país: " + country, Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(getContext(), "No se encontraron ligas para " + country, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Error al obtener las ligas. Intente nuevamente.", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -94,5 +101,6 @@ public class LigasFragment extends Fragment {
             }
         });
     }
+
 }
 
