@@ -1,26 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+    <!-- Campo de texto para el ID de la Liga -->
+    <EditText
+        android:id="@+id/etIdLiga"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/tvLigaSeleccionadaResultados"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Liga Seleccionada: -"
-            android:layout_margin="8dp"
-            android:textStyle="bold" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvResultados"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el ID de la liga"
+        android:inputType="number"
+        android:layout_marginBottom="8dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Campo de texto para la Ronda -->
+    <EditText
+        android:id="@+id/etRonda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese la ronda (ej: 1, 2, 3, ...)"
+        android:inputType="number"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"/>
+    <!-- Campo de texto para la Temporada -->
+    <EditText
+        android:id="@+id/etTemporada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese la temporada (ej: 2023-2024)"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Botón para buscar los resultados -->
+    <Button
+        android:id="@+id/btnBuscarResultados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar Resultados"
+        android:layout_gravity="center"
+        android:padding="12dp"
+        android:textColor="@android:color/white"
+        android:elevation="4dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- RecyclerView para mostrar la lista de resultados de encuentros -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvResultados"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

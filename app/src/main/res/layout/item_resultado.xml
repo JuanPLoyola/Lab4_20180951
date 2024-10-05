@@ -1,46 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
+    android:padding="8dp"
     android:layout_margin="8dp"
     android:background="@drawable/item_background"
     android:elevation="4dp">
 
-    <!-- TextView para el equipo local -->
-<TextView
-android:id="@+id/tvEquipoLocal"
-android:layout_width="0dp"
-android:layout_height="wrap_content"
-android:layout_weight="3"
-android:text="Equipo Local"
-android:textSize="18sp"
-android:textStyle="bold"
-    android:paddingEnd="8dp"
-    android:gravity="start" />
+    <TextView
+        android:id="@+id/tvNombreLiga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre de la Liga"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-    <!-- TextView para el resultado -->
-<TextView
-android:id="@+id/tvResultado"
-android:layout_width="0dp"
-android:layout_height="wrap_content"
-android:layout_weight="1"
-android:text="2 - 1"
-android:textSize="18sp"
-android:gravity="center"
-    android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tvRonda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ronda"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp" />
 
-    <!-- TextView para el equipo visitante -->
-<TextView
-android:id="@+id/tvEquipoVisitante"
-android:layout_width="0dp"
-android:layout_height="wrap_content"
-android:layout_weight="3"
-android:text="Equipo Visitante"
-android:textSize="18sp"
-android:textStyle="bold"
-android:paddingStart="8dp"
-    android:gravity="end" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp">
 
+        <TextView
+            android:id="@+id/tvEquipoLocal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Equipo Local"
+            android:textSize="16sp"
+            android:gravity="start" />
+
+        <TextView
+            android:id="@+id/tvResultado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0 - 0"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tvEquipoVisitante"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Equipo Visitante"
+            android:textSize="16sp"
+            android:gravity="end" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvFechaEvento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha: "
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp" />
+
+
+</LinearLayout>

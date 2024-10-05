@@ -18,5 +18,11 @@ public interface ApiService {
             @Query("l") String idLiga,   // ID de la liga
             @Query("s") String season    // Temporada (ejemplo: 2023-2024)
     );
+    @GET("eventsround.php")
+    Call<ResultadosResponse> getResultados(
+            @Query("id") String idLiga,   // ID de la liga
+            @Query("r") String ronda,     // Número de la ronda
+            @Query("s") String temporada  // Temporada (ejemplo: 2023-2024)
+    );
 
 }
