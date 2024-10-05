@@ -19,8 +19,8 @@ public class PosicionesAdapter extends RecyclerView.Adapter<PosicionesAdapter.Po
     }
 
     public void setPosiciones(List<EquipoPosicion> posiciones) {
-        this.posiciones = posiciones;
-        notifyDataSetChanged();  // Actualiza la lista de posiciones
+        this.posiciones = posiciones;  // Actualiza la lista completa de posiciones
+        notifyDataSetChanged();  // Notifica al adaptador que los datos han cambiado
     }
 
     @NonNull
@@ -32,9 +32,12 @@ public class PosicionesAdapter extends RecyclerView.Adapter<PosicionesAdapter.Po
 
     @Override
     public void onBindViewHolder(@NonNull PosicionViewHolder holder, int position) {
+        // Obtener el equipo en la posición actual
         EquipoPosicion equipoPosicion = posiciones.get(position);
-        holder.tvNombreEquipo.setText(equipoPosicion.getNombreEquipo());
+
+        // Configurar los datos del equipo en las vistas del ViewHolder
         holder.tvRanking.setText(String.valueOf(equipoPosicion.getRanking()));
+        holder.tvNombreEquipo.setText(equipoPosicion.getNombreEquipo());
         holder.tvVictoriasEmpatesDerrotas.setText(
                 String.format("V: %d | E: %d | D: %d", equipoPosicion.getVictorias(), equipoPosicion.getEmpates(), equipoPosicion.getDerrotas()));
         holder.tvGoles.setText(
@@ -45,20 +48,21 @@ public class PosicionesAdapter extends RecyclerView.Adapter<PosicionesAdapter.Po
 
     @Override
     public int getItemCount() {
-        return posiciones.size();
+        return posiciones.size();  // Devolver el tamaño de la lista completa
     }
 
     static class PosicionViewHolder extends RecyclerView.ViewHolder {
-        TextView tvNombreEquipo, tvRanking, tvVictoriasEmpatesDerrotas, tvGoles;
+        TextView tvRanking, tvNombreEquipo, tvVictoriasEmpatesDerrotas, tvGoles;
 
         public PosicionViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvNombreEquipo = itemView.findViewById(R.id.tvNombreEquipo);
             tvRanking = itemView.findViewById(R.id.tvRanking);
+            tvNombreEquipo = itemView.findViewById(R.id.tvNombreEquipo);
             tvVictoriasEmpatesDerrotas = itemView.findViewById(R.id.tvVictoriasEmpatesDerrotas);
             tvGoles = itemView.findViewById(R.id.tvGoles);
         }
     }
 }
+
 
 

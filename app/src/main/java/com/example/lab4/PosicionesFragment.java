@@ -69,10 +69,15 @@ public class PosicionesFragment extends Fragment {
         apiService.getLeagueTable(idLiga, temporada).enqueue(new Callback<PosicionesResponse>() {
             @Override
             public void onResponse(Call<PosicionesResponse> call, Response<PosicionesResponse> response) {
-                if (response.isSuccessful() && response.body() != null && !response.body().getPosiciones().isEmpty()) {
-                    posicionesAdapter.setPosiciones(response.body().getPosiciones());
+                if (response.isSuccessful() && response.body() != null) {
+                    List<EquipoPosicion> posicionesList = response.body().getPosiciones();  // Obtener la lista completa de posiciones
+                    if (posicionesList != null && !posicionesList.isEmpty()) {
+                        posicionesAdapter.setPosiciones(posicionesList);  // Pasar la lista completa al adaptador
+                    } else {
+                        Toast.makeText(getContext(), "No se encontraron resultados para la liga o temporada especificada", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(getContext(), "No se encontraron resultados para la liga o temporada especificada", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Error al obtener los datos de la liga", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -82,6 +87,7 @@ public class PosicionesFragment extends Fragment {
             }
         });
     }
+
 }
 
 

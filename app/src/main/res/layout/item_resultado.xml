@@ -1,39 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/item_background"
+    android:elevation="4dp">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp">
+    <!-- TextView para el equipo local -->
+<TextView
+android:id="@+id/tvEquipoLocal"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_weight="3"
+android:text="Equipo Local"
+android:textSize="18sp"
+android:textStyle="bold"
+    android:paddingEnd="8dp"
+    android:gravity="start" />
 
-        <TextView
-            android:id="@+id/tvEquipoLocal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="Equipo Local"
-            android:textSize="18sp"/>
+    <!-- TextView para el resultado -->
+<TextView
+android:id="@+id/tvResultado"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_weight="1"
+android:text="2 - 1"
+android:textSize="18sp"
+android:gravity="center"
+    android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvResultado"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2 - 1"
-            android:textSize="18sp"
-            android:gravity="center"/>
+    <!-- TextView para el equipo visitante -->
+<TextView
+android:id="@+id/tvEquipoVisitante"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_weight="3"
+android:text="Equipo Visitante"
+android:textSize="18sp"
+android:textStyle="bold"
+android:paddingStart="8dp"
+    android:gravity="end" />
 
-        <TextView
-            android:id="@+id/tvEquipoVisitante"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="Equipo Visitante"
-            android:textSize="18sp"/>
     </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
