@@ -12,15 +12,15 @@ import java.util.List;
 
 public class PosicionesAdapter extends RecyclerView.Adapter<PosicionesAdapter.PosicionViewHolder> {
 
-    private List<Posicion> posiciones;
+    private List<EquipoPosicion> posiciones;
 
-    public PosicionesAdapter(List<Posicion> posiciones) {
+    public PosicionesAdapter(List<EquipoPosicion> posiciones) {
         this.posiciones = posiciones;
     }
 
-    public void setPosiciones(List<Posicion> posiciones) {
+    public void setPosiciones(List<EquipoPosicion> posiciones) {
         this.posiciones = posiciones;
-        notifyDataSetChanged();
+        notifyDataSetChanged();  // Actualiza la lista de posiciones
     }
 
     @NonNull
@@ -32,10 +32,15 @@ public class PosicionesAdapter extends RecyclerView.Adapter<PosicionesAdapter.Po
 
     @Override
     public void onBindViewHolder(@NonNull PosicionViewHolder holder, int position) {
-        Posicion posicionData = posiciones.get(position);
-        holder.tvNombreEquipo.setText(posicionData.getNombreEquipo());
-        holder.tvPosicion.setText(String.valueOf(posicionData.getPosicion()));
-        holder.tvPuntos.setText(String.valueOf(posicionData.getPuntos()));
+        EquipoPosicion equipoPosicion = posiciones.get(position);
+        holder.tvNombreEquipo.setText(equipoPosicion.getNombreEquipo());
+        holder.tvRanking.setText(String.valueOf(equipoPosicion.getRanking()));
+        holder.tvVictoriasEmpatesDerrotas.setText(
+                String.format("V: %d | E: %d | D: %d", equipoPosicion.getVictorias(), equipoPosicion.getEmpates(), equipoPosicion.getDerrotas()));
+        holder.tvGoles.setText(
+                String.format("G: %d | GC: %d | Diff: %d",
+                        equipoPosicion.getGolesAnotados(), equipoPosicion.getGolesConcedidos(),
+                        equipoPosicion.getGolesAnotados() - equipoPosicion.getGolesConcedidos()));
     }
 
     @Override
@@ -44,14 +49,16 @@ public class PosicionesAdapter extends RecyclerView.Adapter<PosicionesAdapter.Po
     }
 
     static class PosicionViewHolder extends RecyclerView.ViewHolder {
-        TextView tvNombreEquipo, tvPosicion, tvPuntos;
+        TextView tvNombreEquipo, tvRanking, tvVictoriasEmpatesDerrotas, tvGoles;
 
         public PosicionViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNombreEquipo = itemView.findViewById(R.id.tvNombreEquipo);
-            tvPosicion = itemView.findViewById(R.id.tvPosicion);
-            tvPuntos = itemView.findViewById(R.id.tvPuntos);
+            tvRanking = itemView.findViewById(R.id.tvRanking);
+            tvVictoriasEmpatesDerrotas = itemView.findViewById(R.id.tvVictoriasEmpatesDerrotas);
+            tvGoles = itemView.findViewById(R.id.tvGoles);
         }
     }
 }
+
 

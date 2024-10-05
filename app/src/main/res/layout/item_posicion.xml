@@ -4,36 +4,36 @@
     android:layout_height="match_parent">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp">
 
         <TextView
-            android:id="@+id/tvPosicion"
+            android:id="@+id/tvRanking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1"
-            android:textSize="18sp"
-            android:gravity="center"/>
+            android:text="Ranking" />
 
         <TextView
             android:id="@+id/tvNombreEquipo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="Nombre del equipo"
-            android:textSize="18sp"/>
+            android:text="Nombre del Equipo"
+            android:textStyle="bold"
+            android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tvPuntos"
+            android:id="@+id/tvVictoriasEmpatesDerrotas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Pts"
-            android:textSize="18sp"
-            android:gravity="center"/>
+            android:text="V: 0 | E: 0 | D: 0" />
+
+        <TextView
+            android:id="@+id/tvGoles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="G: 0 | GC: 0 | Diff: 0" />
     </LinearLayout>
 
 
